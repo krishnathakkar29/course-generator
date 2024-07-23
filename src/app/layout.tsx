@@ -3,6 +3,7 @@ import { Lexend } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
+import { Provider } from "@/components/Providers";
 
 const lexend = Lexend({ subsets: ["latin"] });
 
@@ -17,8 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(lexend.className, "antialiased min-h-screen relative")}>
-        <Navbar />
+      <body
+        className={cn(lexend.className, "antialiased min-h-screen relative")}
+      >
+        <Provider>
+          <Navbar />
+        </Provider>
         {children}
       </body>
     </html>
